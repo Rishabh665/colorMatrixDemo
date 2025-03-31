@@ -4,13 +4,13 @@ export default function MatrixGame() {
   const [matrix, setMatrix] = useState(
     Array(3)
       .fill(null)
-      .map(() => Array(3).fill("white"))
+      .map(() => Array(3).fill("antiquewhite"))
   );
   const [clickOrder, setClickOrder] = useState([]);
 
   const handleClick = (row, col) => {
     let isLastBox = false;
-    if (matrix[row][col] === "white") {
+    if (matrix[row][col] === "antiquewhite") {
       const newMatrix = matrix.map((r, i) =>
         r.map((c, j) => (i === row && j === col ? "green" : c))
       );
@@ -53,24 +53,14 @@ export default function MatrixGame() {
   };
 
   return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(3, 100px)",
-        gap: "5px",
-      }}
-    >
+    <div className="outer-div">
       {matrix.map((row, i) =>
         row.map((color, j) => (
-          <div
+          <div className="inner-div"
             key={`${i}-${j}`}
             onClick={() => handleClick(i, j)}
             style={{
-              width: "100px",
-              height: "100px",
-              backgroundColor: color,
-              border: "1px solid black",
-              cursor: "pointer",
+              backgroundColor: color
             }}
           ></div>
         ))

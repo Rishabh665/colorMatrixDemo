@@ -1,6 +1,6 @@
 import React from 'react'
 import MatrixGame from './component/MatrixGame'
-
+import "./App.css";
 function App() {
   return (
     <div>
